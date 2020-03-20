@@ -40,7 +40,12 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
     Navigator.push(
       context,
       new MaterialPageRoute(builder: (context) => new MyNextPage(what)),
-    ).then((result) => print(result));
+    ).then((result) {
+      setState(() {
+        print('result');
+        _result = result;
+      });
+    });
   }
 
   @override
