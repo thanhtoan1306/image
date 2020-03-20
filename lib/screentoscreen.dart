@@ -44,7 +44,7 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
 <<<<<<< HEAD
       setState(() {
         print('result');
-=======
+
     // Todo ket qua se duoc tra ve tai day
       print('Ket qua ne');
       print(result);
