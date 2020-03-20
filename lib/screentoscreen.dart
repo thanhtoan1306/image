@@ -41,8 +41,17 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
       context,
       new MaterialPageRoute(builder: (context) => new MyNextPage(what)),
     ).then((result) {
+<<<<<<< HEAD
       setState(() {
         print('result');
+=======
+    // Todo ket qua se duoc tra ve tai day
+      print('Ket qua ne');
+      print(result);
+      
+      // dong nay de cap nhat lai KQ
+      setState({
+>>>>>>> b6a662ce7795100492f9e7b6547ebd501c3026d5
         _result = result;
       });
     });
@@ -77,10 +86,6 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
             ),
 
             Text(_result),
-
-
-
-
           ],
         ),
       ),
