@@ -40,7 +40,16 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
     Navigator.push(
       context,
       new MaterialPageRoute(builder: (context) => new MyNextPage(what)),
-    ).then((result) => print(result));
+    ).then((result) {
+    // Todo ket qua se duoc tra ve tai day
+      print('Ket qua ne');
+      print(result);
+      
+      // dong nay de cap nhat lai KQ
+      setState({
+        _result = result;
+      });
+    });
   }
 
   @override
@@ -72,10 +81,6 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
             ),
 
             Text(_result),
-
-
-
-
           ],
         ),
       ),
