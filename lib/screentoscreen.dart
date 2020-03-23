@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(MyFirstScreen());
 
-
 class MyFirstScreen extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -37,29 +36,33 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
   }
 
   void goToNext(BuildContext context, String what) {
-    Navigator.push(
-      context,
-      new MaterialPageRoute(builder: (context) => new MyNextPage(what)),
-    ).then((result) {
-<<<<<<< HEAD
-      setState(() {
-        print('result');
-
-    // Todo ket qua se duoc tra ve tai day
-      print('Ket qua ne');
-      print(result);
-      
-      // dong nay de cap nhat lai KQ
-      setState({
->>>>>>> b6a662ce7795100492f9e7b6547ebd501c3026d5
-        _result = result;
-      });
+//    Navigator.push(
+//      context,
+//      new MaterialPageRoute(builder: (context) => new MyNextPage(what))
+//    ).then((result) {
+//
+//    //  setState(() {
+//      //  print('result');
+//
+//    // Todo ket qua se duoc tra ve tai day
+//      print('Ket qua ne');
+//      print(result);
+//
+//      // dong nay de cap nhat lai KQ
+//      /*setState({
+//        _result = result;
+//    });*/
+//  }
+  Navigator.push(context,new MaterialPageRoute(builder: (context)=> new MyNextPage(what))).then((result) {
+    setState(() {
+      _result = result;
     });
+
+  });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -84,7 +87,6 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-
             Text(_result),
           ],
         ),
@@ -107,7 +109,6 @@ class MyNextPage extends StatefulWidget {
 }
 
 class _MyNextPageState extends State<MyNextPage> {
-
   void backToHome(BuildContext context, String result) {
     Navigator.pop(context, result);
   }
@@ -129,8 +130,7 @@ class _MyNextPageState extends State<MyNextPage> {
             RaisedButton(
               child: Text('Back To Home '),
               onPressed: () {
-
-                backToHome(context,widget.what );
+                backToHome(context, widget.what);
               },
             )
           ],
