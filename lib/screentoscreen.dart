@@ -36,23 +36,7 @@ class _MyFirstScreenPageState extends State<MyFirstScreenPage> {
   }
 
   void goToNext(BuildContext context, String what) {
-//    Navigator.push(
-//      context,
-//      new MaterialPageRoute(builder: (context) => new MyNextPage(what))
-//    ).then((result) {
-//
-//    //  setState(() {
-//      //  print('result');
-//
-//    // Todo ket qua se duoc tra ve tai day
-//      print('Ket qua ne');
-//      print(result);
-//
-//      // dong nay de cap nhat lai KQ
-//      /*setState({
-//        _result = result;
-//    });*/
-//  }
+
   Navigator.push(context,new MaterialPageRoute(builder: (context)=> new MyNextPage(what))).then((result) {
     setState(() {
       _result = result;

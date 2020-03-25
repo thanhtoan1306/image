@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:imagefr/saleshistory.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 void main() => runApp(MyAppMarket());
@@ -9,7 +10,7 @@ class MyAppMarket extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "App name here",
-      home: AppMarket(),
+      home: AppMarket()
     );
   }
 }
@@ -20,6 +21,10 @@ class AppMarket extends StatefulWidget {
 }
 
 class _MyAppMarketState extends State<AppMarket> {
+
+  void goToNext(BuildContext context, String what) {
+    Navigator.push(context, new MaterialPageRoute(builder: (context) => new SalesHistory(what)),);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -220,6 +225,9 @@ class _MyAppMarketState extends State<AppMarket> {
                               height: 100,
                               width: 80,
                               child: FlatButton(
+                                onPressed: (){
+                                  goToNext(context,null);
+                                },
                                   child: Image.asset('assets/gift.png')),
                             ),
                             Text(
