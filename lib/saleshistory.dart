@@ -74,8 +74,10 @@ class _SalesHistoryState extends State<SalesHistory> {
                   padding:
                       EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
                   child: Card(
+                    color: Colors.grey[400],
                     elevation: 5.0,
                     shape: RoundedRectangleBorder(
+
                       borderRadius: BorderRadius.circular(5.0),
                     ),
                     child: Container(
