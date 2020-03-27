@@ -129,6 +129,7 @@ class _QuestionQuizState extends State<QuestionQuiz> {
                 RectItem(
                   imgURL: "assets/girl.png",
                   id: 2,
+                  isActivate: selected == 2,
                   onClick: () {
                     setState(() {
                       selected = 2 ;
@@ -146,6 +147,7 @@ class _QuestionQuizState extends State<QuestionQuiz> {
                 RectItem(
                   imgURL: 'assets/grandfather.png',
                   id: 3,
+                  isActivate: selected == 3,
                   onClick: () {
                     setState(() {
                       selected = 3 ;
@@ -159,6 +161,7 @@ class _QuestionQuizState extends State<QuestionQuiz> {
                 RectItem(
                   imgURL: "assets/grandmother.png",
                   id: 4,
+                  isActivate: selected == 4,
                   onClick: () {
                     setState(() {
                       selected = 4 ;
