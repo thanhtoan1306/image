@@ -38,7 +38,7 @@ class _ButtonItemState extends State<ButtonItem> {
           ),
           child: Center(
             child: Text(
-              'Check',
+              'Kết quả',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 18,
@@ -118,28 +118,96 @@ class _QuestionQuizState extends State<QuestionQuiz> {
     QuestionAnswer(question: 'Đâu là ông?', options: items, correct: 3),
     QuestionAnswer(question: 'Đâu là bà?', options: items, correct: 4)
   ];
+  int index = 0;
 
-  void nextQuestion() {
-    if (selected == questionList[index].correct && index <= 3) {
-      setState(() {
-        finalScore++;
-        questionNumber++;
-      });
-      index++;
-    } else {
-      print('Bạn chưa trả lời câu hỏi');
-    }
+  Future<void> _conkAlert(BuildContext context) {
+
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: selected == questionList[index].correct
+              ? Text('Chúc mừng bạn đã chọn đúng')
+              : Text('Bạn đã trả lời sai'),
+          actions: <Widget>[
+            FlatButton(
+              child: const Text('Quay về'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: Text('Tiếp'),
+              onPressed: () {
+                print('Giá trị index là ${index}');
+
+
+                Navigator.of(context).pop();
+
+                if(selected == questionList[index].correct){
+
+                  if (index == 3) {
+                    // Navigator.of(context).pop();
+
+                    _finkAlert(context);
+                    finalScore++;
+                  }
+                  else if (index > 3) {
+                    //
+                  }
+                  else {
+                    setState(() {
+                      finalScore++;
+                      questionNumber++;
+                      index++;
+                    });
+                  }
+                }else{
+
+                  //todo
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
+  Future<void> _finkAlert(BuildContext context) {
+    return showDialog<void>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: const Text('Chúc mừng bạn hoàn thành '),
+          actions: <Widget>[
+            FlatButton
+              (
+              child: const Text('Kết thúc'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+
+            )
+          ],
+
+        );
+
+      },
+    );
+  }
+
+
+
   int selected = 0;
-  int index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.green,
           title: Text(
-            'Choice Best Question',
+            'Quiz Game',
             style: TextStyle(fontSize: 20.0),
           )),
       body: Container(
@@ -156,7 +224,7 @@ class _QuestionQuizState extends State<QuestionQuiz> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text(
-                    'Question ${questionNumber + 1}',
+                    'Câu hỏi ${questionNumber + 1}',
                     style:
                         TextStyle(fontSize: 20.0, fontStyle: FontStyle.italic),
                   ),
@@ -171,7 +239,7 @@ class _QuestionQuizState extends State<QuestionQuiz> {
                     ),
                   ),
                   Text(
-                    'Score: ${finalScore}',
+                    'Điểm: ${finalScore}',
                     style: TextStyle(fontSize: 20.0),
                   )
                 ],
@@ -237,25 +305,15 @@ class _QuestionQuizState extends State<QuestionQuiz> {
                 ),
               ],
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+
+            RaisedButton(onPressed:(){
+              _conkAlert(context);
+
+            },
+            child: Text('Check'),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ButtonItem(isCorrect: selected == questionList[index].correct),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                ),
-                IconButton(
-                  color: Colors.green,
-                  icon: Icon(Icons.skip_next),
-                  onPressed: () {
-                    nextQuestion();
-                  },
-                )
-              ],
-            ),
+
+
           ],
         ),
       ),

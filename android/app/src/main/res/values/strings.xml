@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">imagefr</string>
+    <!--Bạn copy hai dòng đầu tiên dán vào đây-->
+    <!--Ví dụ-->
+    <string name="facebook_app_id">674850103265861</string>
+    <string name="fb_login_protocol_scheme">fb674850103265861</string>
+
+</resources>
