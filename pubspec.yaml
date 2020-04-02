@@ -63,6 +63,11 @@ flutter:
   - assets/setting.png
   - assets/education.png
   - assets/king.png
+  - assets/earth.png
+  - assets/sunstart.png
+  - assets/starplune.png
+  - assets/venus.png
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
