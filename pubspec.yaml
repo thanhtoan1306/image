@@ -54,6 +54,15 @@ flutter:
   - assets/grandmother.png
   - assets/grandfather.png
   - assets/icon.png
+  - assets/group.png
+  - assets/marathon.png
+  - assets/marathon1.png
+  - assets/moutain.png
+  - assets/planes.png
+  - assets/flag.png
+  - assets/setting.png
+  - assets/education.png
+  - assets/king.png
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
